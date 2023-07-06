@@ -1,0 +1,6 @@
+#!/bin/bash
+OWNER=&(stat -c '%U' hello)
+if["$OWNER" = "guillaume"];
+then
+	chown betty hello
+fi
