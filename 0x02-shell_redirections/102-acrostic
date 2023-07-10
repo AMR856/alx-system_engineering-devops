@@ -1,0 +1,2 @@
+#!/bin/bash
+cut -c 1-1 file | tr -d '\n'; echo
