@@ -1,0 +1,2 @@
+#!/bin/bash
+find . \( -type f -o -type d -name ".*" \) -empty -print0 | xargs -0 -n 1 basename
