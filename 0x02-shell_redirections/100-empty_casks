@@ -1,2 +1,2 @@
 #!/bin/bash
-find . -mindepth 1 \( -type f -empty -o -type d -empty \) -exec basename {} \;
+find . -empty -printf '%f\n'
