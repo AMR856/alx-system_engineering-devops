@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+# This script is displaying "Best School" 10 times
+# but in this script it displays hi on the 9th iteration
+(( i=0 ))
+while [ $i -le 9 ]
+do
+    echo "Best School"
+    if [ $((i)) == 8 ]; then
+        echo "Hi"
+    fi
+    i=$(( i + 1 ))
+done
