@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+#This script is reading the content of a file
+INFILE=/etc/passwd
+
+# Read the input file line by line
+while read -r LINE
+do
+    echo "$LINE" | cut -d ':' -f 1,3,6
+
+done < "$INFILE"
