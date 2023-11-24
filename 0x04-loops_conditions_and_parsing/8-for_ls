@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+# This script is displaying the files in the current dir
+for myFile in *
+do
+    echo "$myFile"
+done
