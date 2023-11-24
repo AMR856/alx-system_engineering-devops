@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 # This script is displaying information about school file
 myFile="school"
-if [ -e "$myFile" ]; then
+if test -f $myFile || test -d $myFile; then
     echo "school file exists"
-    if [ ! -s "$myFile" ] || [ ! -d "$myFile" ]; then
+    if [ ! -s "${myFile}" ] || [ ! "$(ls -A $myFile)" ]; then
         echo "school file is empty"
     else
         echo "school file is not empty"
