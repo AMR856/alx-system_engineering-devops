@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+#This script is reading the content of a file
+INFILE=/etc/passwd
+MY_USERNAME=""
+MY_GROUP_ID=""
+MY_HOME_DIRECTORY=""
+MY_COMMAND=""
+MY_USER_ID=""
+MY_PASSWORD=""
+MY_INFO=""
+# Read the input file line by line
+while read -r LINE
+do
+    MY_USERNAME=$(echo "$LINE" | cut -d ':' -f 1)
+    MY_GROUP_ID=$(echo "$LINE" | cut -d ':' -f 4)
+    MY_HOME_DIRECTORY=$(echo "$LINE" | cut -d ':' -f 6)
+    MY_COMMAND=$(echo "$LINE" | cut -d ':' -f 7)
+    MY_USER_ID=$(echo "$LINE" | cut -d ':' -f 3)
+    MY_PASSWORD=$(echo "$LINE" | cut -d ':' -f 2)
+    MY_INFO=$(echo "$LINE" | cut -d ':' -f 5)
+    echo "The user $MY_USERNAME is part of the $MY_GROUP_ID gang, lives in $MY_HOME_DIRECTORY and rides $MY_COMMAND. $MY_USER_ID's place is protected by the passcode $MY_PASSWORD, more info about the user here: $MY_INFO"
+
+done < "$INFILE"
