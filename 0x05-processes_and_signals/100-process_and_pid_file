@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+# This script does a lot of stuff
+myEnding()
+{
+    rm /var/run/myscript.pid
+    exit
+}
+(( i=1 ))
+echo "$$" > /var/run/myscript.pid
+while [ $i ]
+do
+    trap "echo I hate the kill command" 15
+    trap "echo Y U no love me?!" 2
+    trap myEnding 3
+    echo "To infinity and beyond"
+    sleep 2
+done

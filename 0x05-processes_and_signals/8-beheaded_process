@@ -2,3 +2,5 @@
 # This script is hungry for killing
 myPid=$(pgrep -f "7-highlander")
 kill -9 "$myPid"
+
+# echo "$$" > /var/run/myscript.pid
