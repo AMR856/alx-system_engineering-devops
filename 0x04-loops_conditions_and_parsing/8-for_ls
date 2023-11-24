@@ -2,7 +2,8 @@
 # This script is displaying the files in the current dir
 for myFile in *
 do
-    if [[ $file == .* ]]; then
+    if [[ $myFile == .* ]]; then
         continue
+    fi
     echo "$myFile" | cut -c3-
 done
