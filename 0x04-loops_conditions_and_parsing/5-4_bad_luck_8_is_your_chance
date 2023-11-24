@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+# This script is displaying "Best School" suppoesdly 10 times
+#but on the 4th iterations it displays other thing and on the 8th iteration
+(( i=1 ))
+while [ $i -le 10 ]
+do
+    if [ $((i)) == 4 ]; then
+        echo "bad luck"
+    elif [ $((i)) == 8 ]; then
+        echo "good luck"
+    else
+        echo "Best School"
+    fi
+    i=$(( i + 1 ))
+done
