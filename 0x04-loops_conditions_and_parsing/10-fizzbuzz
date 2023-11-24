@@ -13,9 +13,11 @@ do
         CONDITION=1
     fi
     if [ $CONDITION -eq 0 ]; then
-        printf "$i"
+        echo "$i"
     fi
-    echo ""
+    if [ $CONDITION -eq 1 ]; then
+        echo ""
+    fi
     i=$(( i=i+1 ))
     CONDITION=0
 done
