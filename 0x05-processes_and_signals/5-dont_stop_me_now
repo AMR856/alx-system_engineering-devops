@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# This script is hungry for killing
+myPid=$(pgrep -f "4-to_infinity_and_beyond")
+kill "$myPid"
