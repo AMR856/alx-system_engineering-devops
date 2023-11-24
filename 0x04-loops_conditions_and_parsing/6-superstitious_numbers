@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+# This script is displaying the numbers from 1 to 20
+# But on some numbers it displays some things after it
+(( i=1 ))
+while [ $i -le 20 ]
+do
+    echo "$i"
+    if [ $i == 4 ]; then
+        echo "bad luck from China"
+    elif [ $i == 9 ]; then
+        echo "bad luck from Japan"
+    elif [ $i == 17 ]; then
+        echo "bad luck from Italy"
+    fi
+    i=$(( i=i+1 ))
+done
