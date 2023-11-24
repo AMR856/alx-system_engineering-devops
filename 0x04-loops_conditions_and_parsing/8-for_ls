@@ -4,6 +4,8 @@ for myFile in *
 do
     if [[ $myFile == .* ]]; then
         continue
+    elif [ ! -f "$myFile" ]; then
+        continue
     fi
     echo "$myFile" | cut -c3-
 done
