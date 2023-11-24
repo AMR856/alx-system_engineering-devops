@@ -7,5 +7,5 @@ do
     elif [ ! -f "$myFile" ]; then
         continue
     fi
-    echo "$myFile" | cut -d '-' -f2
+    echo "$myFile" | cut -c3-
 done
