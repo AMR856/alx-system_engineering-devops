@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+# This script is displaying the hours and minutes
+(( i=1 ))
+CONDITION=0
+while [ $i -le 100 ]
+do
+    if [ $(( i % 3 )) -eq 0 ]; then
+        printf "Fizz"
+        CONDITION=1
+    fi
+    if [ $(( i % 5 )) -eq 0 ]; then
+        printf "Buzz"
+        CONDITION=1
+    fi
+    if [ $CONDITION -eq 0 ]; then
+        printf "$i"
+    fi
+    echo ""
+    i=$(( i=i+1 ))
+    CONDITION=0
+done
