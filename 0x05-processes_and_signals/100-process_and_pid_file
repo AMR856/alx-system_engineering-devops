@@ -11,7 +11,7 @@ while [ $i ]
 do
     trap "echo I hate the kill command" 15
     trap "echo Y U no love me?!" 2
-    trap myEnding 3
+    trap "myEnding" 3
     echo "To infinity and beyond"
     sleep 2
 done
