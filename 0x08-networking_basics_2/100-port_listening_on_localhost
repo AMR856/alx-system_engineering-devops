@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# This is a script to ruin my linux life
+nc -l 98
