@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# A script to install Nginx and run it and also making
+# serves a simple hello world
+
+sudo apt-get update
+sudo apt-get install nginx
+sudo ufw allow 'Nginx HTTP'
+echo "Hello World!" > /var/www/html/index.nginx-debian.html
+sudo systemctl start nginx
