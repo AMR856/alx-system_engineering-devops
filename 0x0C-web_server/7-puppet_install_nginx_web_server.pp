@@ -1,3 +1,4 @@
+## Comment here
 package { 'Nginx'
     ensure => 'present'
 }
