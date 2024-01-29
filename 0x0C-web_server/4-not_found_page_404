@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+# A Script to install and redirect
+
+sudo apt-get -y update
+sudo apt-get -y install nginx
+echo "Hello World!" | sudo tee /var/www/html/index.html
+STRING_REPLACEMENT="server_name _;\n\trewrite ^\/redirect_me https://www.facebook.com permanent;"
+sudo sed -i "s#server_name _;#$STRING_REPLACEMENT#" /etc/nginx/sites-enabled/default
+
+
+echo "Ceci n'est pas une page" | sudo tee /var/www/html/another.html
+STRING_REPLACEMENT1="listen 80 default_server;\n\terror_page 404 \/another.html;\n\tlocation = \/another.html {\n\t\troot \/var\/www\/html;\n\t\tinternal;\n\t}"
+sudo sed -i "s#listen 80 default_server;#$STRING_REPLACEMENT1#" /etc/nginx/sites-enabled/default
+sudo service nginx restart
