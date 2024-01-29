@@ -1,5 +1,5 @@
 ## Comment here
-package { 'Nginx'
+package { 'nginx'
     ensure => 'present'
 }
 
@@ -9,7 +9,7 @@ exec { 'installing'
 }
 
 exec { 'file'
-    commmand => 'echo "Helo World!" | sudo tee /var/www/html/index.html',
+    commmand => 'echo "Hello World!" | sudo tee /var/www/html/index.html',
     provider => shell
 }
 exec { 'redirecting'
