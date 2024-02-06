@@ -1,0 +1,8 @@
+#!#!/usr/bin/env bash
+# A script to configure a new web server
+
+sudo apt-get -y update
+sudo apt-get -y install nginx
+echo "Hello world" | sudo tee /var/www/html/index.html
+sudo sed -i "11i\\\tadd_header X-Served-By $HOSTNAME;" /etc/nginx/nginx.conf
+sudo service nginx restart
