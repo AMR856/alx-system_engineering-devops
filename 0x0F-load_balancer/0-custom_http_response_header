@@ -1,4 +1,4 @@
-#!#!/usr/bin/env bash
+#!/usr/bin/env bash
 # A script to configure a new web server
 
 sudo apt-get -y update
