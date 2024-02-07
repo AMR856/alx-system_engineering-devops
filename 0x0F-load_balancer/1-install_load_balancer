@@ -2,11 +2,11 @@
 # A script here
 apt-get update
 apt-get install -y --no-install-recommends software-properties-common
-add-apt-repository -y ppa:vbernat/haproxy-1.8
-apt-get -y install haproxy=1.8.\*
+add-apt-repository -y ppa:vbernat/haproxy-2.8
+apt-get -y install haproxy=2.8.\*
 echo "ENABLED=1" > /etc/default/haproxy
 cp /etc/haproxy/haproxy.cfg /etc/haproxy/haproxy.txt
-echo "listen myLoadBalnacer
+echo "listen 343172-lb-01
     bind *:80
     mode http
     balance roundrobin
