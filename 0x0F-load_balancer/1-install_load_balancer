@@ -1,19 +1,26 @@
 #!/usr/bin/env bash
 # A script here
-apt-get -y update
-apt-get -y install --no-install-recommends software-properties-common
-add-apt-repository -y ppa:vbernat/haproxy-2.8
-apt-get -y update
-apt-get -y install haproxy=2.8.\*
-echo "ENABLED=1" > /etc/default/haproxy
-cp /etc/haproxy/haproxy.cfg /etc/haproxy/haproxy.txt
-echo "listen 343172-lb-01
+BALANCER_TEXT="\
+frontend myBalancer
     bind *:80
     mode http
+    default_backend myServers
+backend myServers
     balance roundrobin
-    option http-keep-alive
-    option forwardfor
     server 343172-web-02 100.25.129.71:80 check
     server 343172-web-01 34.224.3.252:80 check
-" >> /etc/haproxy/haproxy.cfg
+"
+# Update packages
+apt-get -y update
+apt-get -y upgrade
+
+# Add HAProxy PPA
+apt-get -y install software-properties-common
+add-apt-repository -y ppa:vbernat/haproxy-2.5
+apt-get -y update
+
+# Install HAProxy
+apt-get -y install haproxy
+cp -a /etc/haproxy/haproxy.cfg{,.orig}
+echo "$BALANCER_TEXT" >> /etc/haproxy/haproxy.cfg
 service haproxy restart
