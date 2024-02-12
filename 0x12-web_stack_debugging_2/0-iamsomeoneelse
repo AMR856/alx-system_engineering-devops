@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# Lemee check what does this thing do
+sudo echo "$1"
