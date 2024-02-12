@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# An explination here
+sed -i "s#80#8080#" /etc/nginx/sites-enabled/default
+sed -i "s#www-data;#ameralnas;#" /etc/nginx/nginx.conf
+chmod 644 /etc/nginx/nginx.conf
+pkill apache2
+sudo -u ameralnas service nginx restart
