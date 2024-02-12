@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# A file to install and configure a firewall
+apt-get install ufw
+sed -i 's/IPV6=.*/IPV6=yes/' /etc/default/ufw
+ufw enable
+ufw default deny incoming
+ufw allow 22/tcp
+ufw allow 443/tcp
+ufw allow 80/tcp
