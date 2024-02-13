@@ -4,6 +4,6 @@
 sudo apt-get -y update
 sudo apt-get -y install nginx
 echo "Hello World!" | sudo tee /var/www/html/index.html
-STRING_REPLACEMENT="server_name _;\n\trewrite ^\/redirect_me https://www.facebook.com permanent;"
+STRING_REPLACEMENT="server_name _;\n\trewrite \/redirect_me https://www.facebook.com permanent;"
 sudo sed -i "s#server_name _;#$STRING_REPLACEMENT#" /etc/nginx/sites-enabled/default
 sudo service nginx restart
