@@ -19,7 +19,7 @@ if __name__ == "__main__":
         if task['completed'] is True:
             completed_tasks_num = completed_tasks_num + 1
             completed_tasks_list.append(task)
-    print('Employee {} is done with tasks({}/{})'.format
+    print('Employee {} is done with tasks({}/{}):'.format
           (emp_response['name'], completed_tasks_num, tasks_num))
     for task in completed_tasks_list:
-        print('\t{}'.format(task['title']))
+        print('\t {}'.format(task['title']))
