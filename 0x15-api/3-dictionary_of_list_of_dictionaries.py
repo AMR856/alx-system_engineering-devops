@@ -24,6 +24,9 @@ if __name__ == "__main__":
         else:
             json_list_all.append(json_list_employ)
             json_list_employ = []
+            temp_dic = {'username': emp_response[current_c - 1]['username'],
+                        'task': task['title'], 'completed': task['completed']}
+            json_list_employ.append(temp_dic)
             current_c = current_c + 1
     json_list_all.append(json_list_employ)
     current_c = 1
@@ -34,3 +37,5 @@ if __name__ == "__main__":
     final_dump = json.dumps(final_dict)
     with open('todo_all_employees.json', 'w', encoding='utf-8') as file:
         file.write(final_dump)
+
+# CHARACTERS 19256 WORDS 2129 SENTENCES 39 PARAGRAPHS 1 SPACES 2128
