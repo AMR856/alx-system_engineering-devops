@@ -24,7 +24,7 @@ if __name__ == "__main__":
         else:
             json_list_all.append(json_list_employ)
             json_list_employ = []
-            temp_dic = {'username': emp_response[current_c - 1]['username'],
+            temp_dic = {'username': emp_response[current_c]['username'],
                         'task': task['title'], 'completed': task['completed']}
             json_list_employ.append(temp_dic)
             current_c = current_c + 1
