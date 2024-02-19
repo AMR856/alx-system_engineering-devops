@@ -1,9 +1,9 @@
 #!/usr/bin/python3
 """A script that uses some things to do things"""
+import json
 import re
 import requests
 import sys
-import json
 if __name__ == "__main__":
     user_num = str(sys.argv[1])
     the_url = f"https://jsonplaceholder.typicode.com/users/{user_num}"
@@ -23,8 +23,9 @@ if __name__ == "__main__":
     temp_dic = {}
     json_list = []
     for task in emp_tasks_complete:
-        temp_dic = {"task": task['title'], 'completed': task['completed'], 'username': emp_response['username']}
+        temp_dic = {"task": task['title'], 'completed': task['completed'],
+                    'username': emp_response['username']}
         json_list.append((temp_dic))
-    final_dump = json.dumps({user_num : json_list})
+    final_dump = json.dumps({user_num: json_list})
     with open(f'{user_num}.json', 'w', encoding='utf-8') as file:
         file.write(final_dump)
