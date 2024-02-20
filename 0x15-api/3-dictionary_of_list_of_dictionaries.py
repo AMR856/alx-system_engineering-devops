@@ -37,5 +37,3 @@ if __name__ == "__main__":
     final_dump = json.dumps(final_dict)
     with open('todo_all_employees.json', 'w', encoding='utf-8') as file:
         file.write(final_dump)
-
-# CHARACTERS 19256 WORDS 2129 SENTENCES 39 PARAGRAPHS 1 SPACES 2128
