@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """First script that uses Reddit API"""
-import requests
 import json
+import requests
 
 
 def number_of_subscribers(subreddit):
