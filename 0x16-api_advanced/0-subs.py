@@ -6,7 +6,7 @@ import requests
 
 def number_of_subscribers(subreddit):
     """A function to do stuff that can be done using other functions"""
-    if subreddit is None or str(subreddit) == "":
+    if subreddit is None or type(subreddit) is not str:
         return 0
     user_agent = "0x16-api_advanced/1.0 by AMR856"
     headers = {"User-Agent": user_agent}
