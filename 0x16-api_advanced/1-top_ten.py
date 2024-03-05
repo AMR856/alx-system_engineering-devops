@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""First script that uses Reddit API"""
+"""Second script that uses Reddit API"""
 import json
 import requests
 
@@ -12,7 +12,7 @@ def top_ten(subreddit):
     headers = {"User-Agent": user_agent}
     params = {"limit": 10}
     url = f"https://www.reddit.com/r/{subreddit}/hot.json"
-    my_json_object = requests.get(url, params=params, headers=headers)
+    my_json_object = requests.get(url, params=params, headers=headers, allow_redirects=False)
     if my_json_object.status_code == 404:
         print("None")
         return
