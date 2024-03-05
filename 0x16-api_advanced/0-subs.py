@@ -12,5 +12,8 @@ def number_of_subscribers(subreddit):
     headers = {"User-Agent": user_agent}
     url = f"https://www.reddit.com/r/{subreddit}/about.json"
     my_json_object = requests.get(url, headers=headers)
-    my_dict = json.loads(my_json_object.text)
-    return my_dict['data']['subscribers']
+    if my_json_object.status_code == 200:
+        my_dict = json.loads(my_json_object.text)
+        return my_dict['data']['subscribers']
+    else:
+        return 0
