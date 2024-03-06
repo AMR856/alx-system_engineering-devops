@@ -12,13 +12,13 @@ def top_ten(subreddit):
     headers = {"User-Agent": user_agent}
     params = {"limit": 10}
     url = f"https://www.reddit.com/r/{subreddit}/hot.json"
-    my_json_object = requests.get(url, params=params, headers=headers, allow_redirects=False)
-    if my_json_object.status_code == 404:
+    my_object = requests.get(url, params=params, headers=headers, allow_redirects=False)
+    if my_object.status_code == 404:
         print("None")
         return
     else:
-        my_object_after_parsing = json.loads(my_json_object.text)
-        for reddit in my_object_after_parsing['data']['children']:
+        my_dict = my_object.json()
+        for reddit in my_dict['data']['children']:
             print(reddit['data']['title'])
 
 
