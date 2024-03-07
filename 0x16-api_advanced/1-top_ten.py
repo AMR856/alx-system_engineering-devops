@@ -1,24 +1,25 @@
 #!/usr/bin/python3
-'''
-    this module contains the function top_ten
-'''
+"""Second script that uses Reddit API"""
+import json
 import requests
-from sys import argv
 
 
 def top_ten(subreddit):
-    '''
-        returns the top ten posts for a given subreddit
-    '''
-    user = {'User-Agent': 'Lizzie'}
-    url = requests.get('https://www.reddit.com/r/{}/hot/.json?limit=10'
-                       .format(subreddit), headers=user).json()
-    try:
-        for post in url.get('data').get('children'):
-            print(post.get('data').get('title'))
-    except Exception:
-        print(None)
+    """A function to do stuff that can be done using other functions"""
+    if subreddit is None or type(subreddit) is not str:
+        return 0
+    user_agent = "0x16-api_advanced/1.0 by AMR856"
+    headers = {"User-Agent": user_agent}
+    params = {"limit": 10}
+    url = f"https://www.reddit.com/r/{subreddit}/hot.json"
+    my_object = requests.get(url, params=params, headers=headers, allow_redirects=False)
+    if my_object.status_code == 404:
+        print("None")
+        return
+    else:
+        my_dict = my_object.json()
+        for reddit in my_dict['data']['children']:
+            print(reddit['data']['title'])
 
 
-if __name__ == "__main__":
-    top_ten(argv[1])
+"https://www.reddit.com/r/programming/hot.json/?limit=10"
